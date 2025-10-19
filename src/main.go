@@ -28,7 +28,7 @@ var produits = []Produit{
 		Description:      "Pull unisexe confortable",
 		Prix:             129.99,
 		Reduction:        0.20,
-		Image:            "/static/products/19A.webp",
+		Image:            "assets/img/products/19A.webp",
 		Lareduc:          true,
 		PrixReduit:       103.99,
 		PourcentageReduc: 20,
@@ -39,7 +39,7 @@ var produits = []Produit{
 		Description:      "Pull marine stylé",
 		Prix:             119.00,
 		Reduction:        0.10,
-		Image:            "/static/products/21A.webp",
+		Image:            "/assets/img/products/21A.webp",
 		Lareduc:          true,
 		PrixReduit:       107.10,
 		PourcentageReduc: 10,
@@ -49,7 +49,7 @@ var produits = []Produit{
 		Nom:         "PALACE PULL CREW PASSEPOSE NOIR",
 		Description: "Pull noir classique",
 		Prix:        99.50,
-		Image:       "/static/products/22A.webp",
+		Image:       "/assets/img/products/22A.webp",
 		Lareduc:     false,
 	},
 	{
@@ -58,7 +58,7 @@ var produits = []Produit{
 		Description:      "Hoodie vert mojito",
 		Prix:             139.00,
 		Reduction:        0.15,
-		Image:            "/static/products/16A.webp",
+		Image:            "/assets/img/products/16A.webp",
 		Lareduc:          true,
 		PrixReduit:       118.15,
 		PourcentageReduc: 15,
@@ -69,7 +69,7 @@ var produits = []Produit{
 		Description:      "Jean stone coupe bossy",
 		Prix:             149.90,
 		Reduction:        0.05,
-		Image:            "/static/products/34B.webp",
+		Image:            "/assets/img/products/34B.webp",
 		Lareduc:          true,
 		PrixReduit:       142.41,
 		PourcentageReduc: 5,
@@ -80,7 +80,7 @@ var produits = []Produit{
 		Description:      "Cargo Gore-Tex noir",
 		Prix:             199.00,
 		Reduction:        0.25,
-		Image:            "/static/products/33B.webp",
+		Image:            "/assets/img/products/33B.webp",
 		Lareduc:          true,
 		PrixReduit:       149.25,
 		PourcentageReduc: 25,
@@ -90,6 +90,7 @@ var produits = []Produit{
 func main() {
 	os.MkdirAll("./assets/products", os.ModePerm)
 	os.MkdirAll("./src/templates", os.ModePerm)
+	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets"))))
 
 	temp, err := template.ParseGlob("./src/templates/*.html")
 	if err != nil {

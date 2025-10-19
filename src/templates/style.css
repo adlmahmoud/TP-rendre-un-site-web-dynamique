@@ -1,3 +1,5 @@
+/* style.css - CSS pour reproduire la maquette demandée */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +12,8 @@ body {
     color: #333;
 }
 
-.navbar {
+/* Header avec logo centré */
+.nav-link {
     background-color: #333;
     color: white;
     padding: 15px 20px;
@@ -19,9 +22,27 @@ body {
     align-items: center;
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 20px;
+}
+
 .logo {
     width: 60px;
     height: auto;
+}
+
+/* Style pour le logo StreetShop comme dans l'image */
+.logo-streetshop {
+    background-color: #ff0000;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
 }
 
 .nav-menu {
@@ -29,12 +50,13 @@ body {
     gap: 20px;
 }
 
-.nav-link nav a {
+.nav-menu a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
 }
 
+/* Page d'accueil - Liste des produits */
 main {
     max-width: 1200px;
     margin: 40px auto;
@@ -46,7 +68,6 @@ main {
     font-weight: bold;
     margin-bottom: 30px;
     text-transform: uppercase;
-    text-align: center;
 }
 
 .produit {
@@ -66,24 +87,24 @@ main {
 }
 
 .produit-image {
-    width: 20vw;
-    height: 20vw;
-    max-width: 120px;
-    max-height: 120px;
-    min-width: 60px;
-    min-height: 60px;
+    width: 80px;
+    height: 80px;
     margin-right: 15px;
     border-radius: 3px;
     overflow: hidden;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .produit-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
-.produit-description {
+.description {
     flex: 1;
 }
 
@@ -91,18 +112,21 @@ main {
     font-size: 14px;
     margin-bottom: 5px;
     line-height: 1.2;
+    text-transform: uppercase;
 }
 
 .prix {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .old-price {
     text-decoration: line-through;
     color: #999;
     margin-right: 5px;
+    font-size: 14px;
 }
 
 .new-price {
@@ -114,6 +138,7 @@ main {
     color: #ff5722;
     font-weight: bold;
     margin-left: 5px;
+    font-size: 14px;
 }
 
 .btn-consulter {
@@ -124,6 +149,7 @@ main {
     border-radius: 3px;
     cursor: pointer;
     font-size: 12px;
+    text-transform: lowercase;
     text-decoration: none;
     display: inline-block;
 }
@@ -136,22 +162,29 @@ main {
 }
 
 .item-container {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 30px;
     display: flex;
     gap: 40px;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .item-image {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     border-radius: 5px;
     overflow: hidden;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .item-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .item-details {
@@ -162,18 +195,20 @@ main {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
-.item-description {
+.description {
     font-size: 16px;
     margin-bottom: 20px;
     line-height: 1.6;
 }
 
-.prix {
+.price {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 15px;
+    position: relative;
 }
 
 .item-details button {
@@ -181,11 +216,14 @@ main {
     color: white;
     border: none;
     padding: 12px 20px;
-    border-radius: 3px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
+    text-transform: lowercase;
+    width: fit-content;
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
     .produit {
         grid-template-columns: repeat(2, 1fr);
@@ -212,12 +250,6 @@ main {
     }
     
     .produit-image {
-        width: 40vw;
-        height: 40vw;
-        max-width: 80px;
-        max-height: 80px;
-        min-width: 40px;
-        min-height: 40px;
         margin-right: 0;
         margin-bottom: 10px;
     }
