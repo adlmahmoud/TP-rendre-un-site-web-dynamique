@@ -1,0 +1,52 @@
+{{define "home"}}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreetShop - Accueil</title>
+  <link rel="stylesheet" href="src/templates/style.css">
+</head>
+
+<body>
+  <header class="nav-link">
+   <img class="logo" src="/assets/img/logo/1.png" alt="StreetShop Logo">
+    <nav>
+      <a href="/home">Accueil</a>
+      <a href="/add">Add</a>
+    </nav>
+  </header>
+
+
+  <main>
+    <h1 class="titre">LES</h1>
+    <h1 class="titre">PRODUITS</h1>
+
+
+    <section class="produit">
+      {{range .}}
+      <div class="produit-card">
+        <img src="{{.Image}}" alt="{{.Nom}}" class="produit-image">
+        <div class="description">
+          <h2 class="produit-nom">{{.Nom}}</h2>
+          {{if .Lareduc}}
+            <p class="prix">
+              <span class="old-price">{{.Prix}}€</span>
+              <span class="new-price">{{.PrixReduit}} €</span>
+              <span class="reduc">-{{.PourcentageReduc}}%</span>
+            </p>
+          {{else}}
+            <p class="prix">{{.Prix}}€</p>
+          {{end}}
+          <a class="btn-consulter" href="/produit?id={{.Id}}">Consulter</a>
+        </div>
+      </div>
+      {{else}}
+        <p>Aucun produit disponible.</p>
+      {{end}}
+    </section>
+  </main>
+ 
+</body>
+</html>
+{{end}}
